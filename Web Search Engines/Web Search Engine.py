@@ -21,8 +21,9 @@ import urllib
 import time
 from gensim.utils import tokenize
 
+
 HOSTNAME = 'localhost'
-DATABASE = 'webdatabase'
+DATABASE = 'thikawater'
 USERNAME = 'root'
 PASSWORD = ''
 
@@ -352,8 +353,8 @@ def analyze_webpage(connection, url, html_title, plain_text):
         finally:
             pass
     try:
-        #html_title = html_title.encode(encoding='utf-8')
-        #plain_text = plain_text.encode(encoding='utf-8')
+        html_title = html_title.encode(encoding='utf-8')
+        plain_text = plain_text.encode(encoding='utf-8')
         sql_statement = "INSERT INTO `webpage` (`url`, `title`, `content`) VALUES ('%s', '%s', '%s')" % \
                         (url, html_title.replace("'", "\""), plain_text.replace("'", "\""))
         cursor = connection.cursor()
@@ -471,7 +472,7 @@ def data_mining():
         while not done:
             try:
                 if not connection.is_connected():
-                    time.sleep(30)
+                    time.sleep(30) 
                     connection = mysql.connector.connect(host=HOSTNAME, database=DATABASE, user=USERNAME,
                                                          password=PASSWORD, autocommit=True)
                     server_info = connection.get_server_info()
@@ -497,6 +498,7 @@ def data_mining():
         pass
 
 
-add_url_to_frontier('https://en.wikipedia.org/')
+add_url_to_frontier('https://www.tum.ac.ke/')
 if create_database():
     web_search_engine()
+

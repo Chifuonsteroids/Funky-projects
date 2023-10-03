@@ -3,10 +3,10 @@ import threading
 
 # Server-side parameters
 SERVER_HOST = '127.0.0.1'
-SERVER_PORT = 3306
+SERVER_PORT = 443
 
 # Size of receive buffer
-BUFFER_SIZE = 4096
+BUFFER_SIZE = 16384
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,7 +16,7 @@ server_address = (SERVER_HOST, SERVER_PORT)
 sock.bind(server_address)
 
 # Set the socket to listen for incoming connections
-sock.listen(1)
+sock.listen(1  )
 
 # Function to handle incoming client connections
 def handle_client_connection(client_socket):
