@@ -1,5 +1,8 @@
-from tkinter import *
+from tkinter import * 
 from goose3 import Goose
+
+root =Tk()
+root.configure(bg='light blue')
 
 #Visualizing using tkinter
 def info():
@@ -14,29 +17,22 @@ title = StringVar();
 meta = StringVar();
 art_dec = StringVar();
 
-#object of tkinter 
-#And background set to grey
-
-master = Tk()
-master.configure(bg='light blue')
-
-
 #Labels for each information  name using widget Label
-Label(master, text="Website URL : ", bg="light grey").grid(row=0, sticky=W)
-Label(master, text="Title : ", bg="light grey").grid(row=3, sticky=W)
-Label(master,text="Meta information : ", bg="light grey").grid(row=4, sticky=W)
-Label(master, text="Article Description : ", bg="light grey").grid(row=5, sticky=W)
+Label(root, text="Website URL : ", bg="light grey").grid(row=0, sticky=W)
+Label(root, text="Title : ", bg="light grey").grid(row=3, sticky=W)
+Label(root,text="Meta information : ", bg="light grey").grid(row=4, sticky=W)
+Label(root, text="Article Description : ", bg="light grey").grid(row=5, sticky=W)
 
 #Lables for class variables name using widget entry
-Label(master, text="", textvariable=title, bg="light grey").grid(row=3, column=1, sticky=W)
-Label(master, text="", textvariable=meta, bg="light grey").grid(row=4, column=1, sticky=W)
-Label(master, text="", textvariable=art_dec, bg="light grey").grid(row=5, column=1, sticky=W)
+Label(root, text="", textvariable=title, bg="light grey").grid(row=3, column=1, sticky=W)
+Label(root, text="", textvariable=meta, bg="light grey").grid(row=4, column=1, sticky=W)
+Label(root, text="", textvariable=art_dec, bg="light grey").grid(row=5, column=1, sticky=W)
 
-e1= Entry(master,width=100)
+e1= Entry(root,width=100)
 e1.grid(row=0, column=1)
 
 #Buttons
-b = Button(master, text="Show",command=info,bg = "blue")
+b = Button(root, text="Show",command=info,bg = "blue")
 b.grid(row=0, column=2, columnspan=2, rowspan=2, padx=5, pady=5,)
 
-mainloop()
+root.mainloop()
